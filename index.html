@@ -136,7 +136,7 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 .hs .now .nm{font-family:"Cormorant Garamond",serif;font-size:40px;line-height:1}
 .hs .now p{font-size:15px;margin-top:6px;opacity:.9}
 .hs .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.hs .btn-g{border-color:var(--deep);color:var(--deep)}.hs .btn-g:hover{background:var(--deep);color:var(--bg)}
+.hs-go{background:var(--deep);border-color:var(--deep);color:var(--bg);padding:16px 28px;font-size:16px;transition:background .7s,color .7s,transform .15s}.hs-go:hover{transform:translateY(-2px)}.hs-go::after{content:"→";margin-left:4px;transition:transform .2s}.hs-go:hover::after{transform:translateX(4px)}
 .hs .art{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;justify-self:center}
 .hs .art::before{content:"";position:absolute;inset:8%;border-radius:50%;background:color-mix(in srgb,#fff 38%,var(--bg));transition:background .7s}
 .hs .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:translateY(16px) scale(.97);transition:opacity .6s,transform .7s;filter:drop-shadow(0 26px 30px rgba(0,0,0,.22))}
@@ -153,6 +153,7 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 .sc .im img{object-fit:contain;padding:10%;filter:drop-shadow(0 14px 16px rgba(0,0,0,.18))}
 .sc h3,.sc h3 a{color:var(--deep)}.sc .ing{color:color-mix(in srgb,var(--deep) 75%,#fff)}
 .sc.dark h3,.sc.dark h3 a{color:#2b2b2a}.sc.dark .ing{color:#55554f}
+.ann-s{display:none}@media(max-width:600px){.announce{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12.5px;padding:8px 12px}.ann-l{display:none}.ann-s{display:inline}}
 /* order bump */
 .bump{display:flex;gap:12px;align-items:flex-start;border:2px dashed var(--buy);background:#fff8dc;border-radius:14px;padding:12px;margin:12px 0 4px;cursor:pointer}
 .bump input{width:20px;height:20px;margin-top:3px;accent-color:var(--buy);flex:0 0 20px}
@@ -170,7 +171,7 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 .upno{display:inline-block;margin-top:12px;font-size:13.5px;color:var(--muted);text-decoration:underline}
 @media(max-width:600px){.upc{grid-template-columns:minmax(0,1fr)}.upc img{min-height:0;aspect-ratio:4/3}}
 </style></head><body>
-<div class="announce">Ručno rađena prirodna kozmetika · Dostava Bex kurirskom službom · Plaćanje pouzećem</div>
+<div class="announce"><span class="ann-l">Ručno rađena prirodna kozmetika · Dostava Bex kurirskom službom · Plaćanje pouzećem</span><span class="ann-s">Ručno rađeno · Bex dostava · Pouzećem</span></div>
 <header class="site"><div class="wrap">
 <a class="logo" href="index.html"><img src="img/logo.jpg" alt="YOTZA natural logo"><span>YOTZA</span><em>natural</em></a>
 <nav class="main" aria-label="Glavna navigacija"><a  href="sapuni.html">Sapuni</a><a href="index.html#ponuda">Ponuda</a><a href="index.html#prica">Kako nastaje</a><a href="index.html#utisci">Utisci</a><a href="index.html#faq">Pitanja</a></nav>
@@ -181,7 +182,7 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 <div><span class="eyebrow">Prirodna kozmetika · ručno rađeno · 0+</span>
 <h1>Sapun kao dobro vino<span class="script">sporo, pažljivo, prirodno</span></h1>
 <div class="now" aria-live="polite"><div class="nm" id="hsName"></div><p id="hsIng"></p><p id="hsMir"></p>
-<div class="ctas"><button class="btn btn-p" id="hsAdd" type="button"></button><a class="btn btn-g" id="hsMore" href="sapuni.html">Pogledaj sapun</a></div></div>
+<div class="ctas"><a class="btn hs-go" id="hsGo" href="sapuni.html"></a></div></div>
 </div>
 <div class="art" id="hsArt"><div class="badge"><b>882 sata</b>od ideje do sapuna u vašim rukama</div></div>
 </div><div class="sw" id="hsSw" role="group" aria-label="Izaberite sapun"></div></section>
@@ -396,14 +397,14 @@ $('#coForm').onsubmit=e=>{e.preventDefault();const f=e.target;let bad=null;
 document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b){add(b.dataset.add,b.dataset.v||'',1);}});
 render();
 const SOAPS=[
-{k:'ovseni',n:'Ovseni',ing:'med, mleko, ovas',mir:'lavanda, ylang-ylang, spearmint',bg:'#ebcb97',deep:'#6b4520',tint:'#f6ead3'},
-{k:'mlecni',n:'Mlečni',ing:'kozje mleko',mir:'organska lavanda',bg:'#e3d9bb',deep:'#5e5636',tint:'#f4f0e2'},
-{k:'sumski',n:'Šumski',ing:'spirulina, zeleni čaj, aloe vera',mir:'kedar, ruzmarin, limeta',bg:'#b9cfa8',deep:'#2f4f2c',tint:'#e5eedd'},
-{k:'zlatni',n:'Zlatni',ing:'kamilica, neven, kurkuma i bakučiol',mir:'lavanda, rimska kamilica, čajno drvo',bg:'#f0b65e',deep:'#6e3b0c',tint:'#fbe8c8'},
-{k:'detox',n:'Detox',ing:'aktivni ugalj, zeolit i kaolin',mir:'menta, eukaliptus, pačuli',bg:'#2b2b2a',deep:'#f2f0ea',tint:'#e4e3df',dark:1},
-{k:'kafeni',n:'Kafeni',ing:'kafa, mak',mir:'vanila, kedar, cimet',bg:'#cfb28d',deep:'#43291a',tint:'#f0e6d8'},
-{k:'rujni',n:'Rujni',ing:'crvena francuska glina',mir:'neroli, grejp, geranijum, kedar',bg:'#e5a07e',deep:'#6e2a13',tint:'#f8e0d3'},
-{k:'lubenica',n:'Lubenica',ing:'crvena glina, mak',mir:'grejp, bergamot, menta, lavanda, kedar, benzoin resin, ruzmarin',bg:'#f3a9a9',deep:'#7f2131',tint:'#fbe3e1'}
+{k:'ovseni',cta:'Umij se medom i ovsom',n:'Ovseni',ing:'med, mleko, ovas',mir:'lavanda, ylang-ylang, spearmint',bg:'#ebcb97',deep:'#6b4520',tint:'#f6ead3'},
+{k:'mlecni',cta:'Okupaj se u kozjem mleku',n:'Mlečni',ing:'kozje mleko',mir:'organska lavanda',bg:'#e3d9bb',deep:'#5e5636',tint:'#f4f0e2'},
+{k:'sumski',cta:'Unesi šumu u svoje kupatilo',n:'Šumski',ing:'spirulina, zeleni čaj, aloe vera',mir:'kedar, ruzmarin, limeta',bg:'#b9cfa8',deep:'#2f4f2c',tint:'#e5eedd'},
+{k:'zlatni',cta:'Probudi se uz kamilicu i neven',n:'Zlatni',ing:'kamilica, neven, kurkuma i bakučiol',mir:'lavanda, rimska kamilica, čajno drvo',bg:'#f0b65e',deep:'#6e3b0c',tint:'#fbe8c8'},
+{k:'detox',cta:'Osveži se mentom i eukaliptusom',n:'Detox',ing:'aktivni ugalj, zeolit i kaolin',mir:'menta, eukaliptus, pačuli',bg:'#2b2b2a',deep:'#f2f0ea',tint:'#e4e3df',dark:1},
+{k:'kafeni',cta:'Jutarnja kafa, ovog puta za kožu',n:'Kafeni',ing:'kafa, mak',mir:'vanila, kedar, cimet',bg:'#cfb28d',deep:'#43291a',tint:'#f0e6d8'},
+{k:'rujni',cta:'Zamiriši na neroli i grejp',n:'Rujni',ing:'crvena francuska glina',mir:'neroli, grejp, geranijum, kedar',bg:'#e5a07e',deep:'#6e2a13',tint:'#f8e0d3'},
+{k:'lubenica',cta:'Zagrizi leto u jednom komadu',n:'Lubenica',ing:'crvena glina, mak',mir:'grejp, bergamot, menta, lavanda, kedar, benzoin resin, ruzmarin',bg:'#f3a9a9',deep:'#7f2131',tint:'#fbe3e1'}
 ];
 $('#soapGrid').innerHTML=SOAPS.map(s=>`<article class="sc${s.dark?' dark':''}" style="--bg:${s.bg};--deep:${s.dark?'#2b2b2a':s.deep};--tint:${s.tint}"><a class="im" href="sapuni.html#${s.k}"><img src="img/cut-${s.k}-s.webp" srcset="img/cut-${s.k}-s.webp 220w, img/cut-${s.k}.webp 1000w" sizes="(max-width:700px) 45vw, 280px" alt="Yotza sapun ${s.n}" loading="lazy"></a><div class="bd"><h3><a href="sapuni.html#${s.k}">${s.n}</a></h3><div class="ing">${s.ing}</div><div class="row"><span class="pr">550 RSD</span><button class="addb" data-soap="${s.k}">Dodaj</button></div></div></article>`).join('');
 $('#soapGrid').addEventListener('click',e=>{const b=e.target.closest('[data-soap]');if(!b)return;const s=SOAPS.find(x=>x.k===b.dataset.soap);add('sapun',s.n+' · '+s.ing,1,'img/sapun-'+s.k+'.jpg')});
@@ -423,10 +424,9 @@ drawTabs();
   art.querySelectorAll('img').forEach(im=>im.classList.toggle('on',+im.dataset.j===i));
   $('#hsSw').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.j===i));
   $('#hsName').textContent=x.n;$('#hsIng').textContent='Sastav: '+x.ing;$('#hsMir').textContent='Miris: '+x.mir;
-  $('#hsAdd').textContent='Dodaj u korpu · 550 RSD';$('#hsMore').href='sapuni.html#'+x.k}
+  $('#hsGo').textContent=x.cta;$('#hsGo').href='sapuni.html#'+x.k}
  function play(){clearInterval(timer);timer=setInterval(()=>go(i+1),4500)}
  $('#hsSw').onclick=e=>{const b=e.target.closest('button');if(!b)return;go(+b.dataset.j);clearInterval(timer)};
- $('#hsAdd').onclick=()=>{const x=SOAPS[i];add('sapun',x.n+' · '+x.ing,1,'img/sapun-'+x.k+'.jpg');clearInterval(timer)};
  hs.addEventListener('mouseenter',()=>clearInterval(timer));
  go(0);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)play();})();
 
