@@ -104,6 +104,65 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 @media(max-width:900px){.pdp{grid-template-columns:minmax(0,1fr);gap:28px}.gallery{position:static}.sticky-buy{display:flex}footer{padding-bottom:90px}}
 @media(max-width:520px){.vars{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.var{font-size:11.5px;padding:4px;border-radius:10px}.xc{grid-template-columns:minmax(0,1fr)}.xc img{min-height:0;aspect-ratio:1/1}.perks{grid-template-columns:minmax(0,1fr)}}
 
+:root{--buy:#2e46c8;--buy-d:#1f339f;--buy-l:#e8ecfb}
+.btn-p{background:var(--buy);border-color:var(--buy);color:#fff}.btn-p:hover{background:var(--buy-d);border-color:var(--buy-d)}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{background:#3a3a34;border-color:#3a3a34}
+.addb{border-color:var(--buy)!important;color:var(--buy)}.addb:hover{background:var(--buy)!important;color:#fff!important}
+
+/* the page wears the selected soap's colour */
+body{--bg:#ebcb97;--deep:#6b4520;--tint:#f6ead3}
+.pdpwrap{background:linear-gradient(180deg,var(--tint),var(--cream) 92%);transition:background .6s}
+.stage{background:var(--bg);transition:background .6s;position:relative}
+.stage img.cut{object-fit:contain;padding:9%;filter:drop-shadow(0 26px 30px rgba(0,0,0,.22))}
+.info h1 .script{color:var(--deep);transition:color .6s}
+.var{background:var(--c)!important;border-color:transparent;color:#2b2b2a}
+.var img{object-fit:contain;background:transparent;aspect-ratio:1/1}
+.var[aria-pressed=true]{border-color:var(--ink);box-shadow:0 0 0 2px #fff inset}
+.var.dark{color:#f2f0ea}
+.notes{border-left:4px solid var(--bg);transition:border-color .6s}
+/* bundle tiers */
+.tiers{display:grid;gap:10px;margin-top:22px}
+.tier{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px 16px;transition:border-color .15s,background .15s}
+.tier .dot{width:20px;height:20px;border-radius:50%;border:2px solid #b9b7ab}
+.tier[aria-pressed=true]{border-color:var(--buy);background:var(--buy-l)}.tier[aria-pressed=true] .dot{border:6px solid var(--buy)}
+.tier b{display:block;font-weight:600;font-size:16px}.tier small{color:var(--muted);font-size:13px}
+.tier .pz{text-align:right;white-space:nowrap}.tier .pz s{display:block;color:#9a998f;font-size:13px}.tier .pz strong{font-size:19px;font-weight:600;color:var(--buy)}
+.tier .save{display:inline-block;margin-top:4px;background:#1d1d1a;color:#fff;border-radius:999px;padding:2px 9px;font-size:11.5px;letter-spacing:.04em}
+.tier .rib{position:absolute;top:-11px;right:14px;background:var(--buy);color:#fff;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.tier .rib.alt{background:#2f4f2c}
+.mix{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-top:12px}
+.mix .hd{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:8px}.mix .hd b{font-weight:600}
+.mix .ok{color:#2f6b2c}.mix .no{color:#b0402a}
+.mrow{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;padding:5px 0}
+.mrow i{width:34px;height:34px;border-radius:50%;background:var(--c);display:block;overflow:hidden}.mrow i img{width:100%;height:100%;object-fit:contain}
+.mrow .q{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}.mrow .q button{width:30px;height:30px;font-size:17px}.mrow .q span{min-width:22px;text-align:center;font-weight:500}
+.buy{flex-direction:column}.buy .btn{width:100%;padding:17px 20px;font-size:16px}
+.buy .btn[disabled]{opacity:.45;cursor:not-allowed}
+/* comparison */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:26px;font-size:15px}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}.cmp thead th{font-weight:600;background:#faf9f4}.cmp th.us{background:var(--tint);color:var(--deep)}
+.cmp td.us{background:color-mix(in srgb,var(--tint) 45%,#fff)}
+.y{color:#2f6b2c;font-weight:700;margin-right:6px}.n{color:#b0402a;font-weight:700;margin-right:6px}
+.cmpwrap{overflow-x:auto}
+.faqg h3{font-size:26px;margin:26px 0 4px}
+@media(max-width:600px){.cmp{font-size:14px;min-width:520px}}
+/* order bump */
+.bump{display:flex;gap:12px;align-items:flex-start;border:2px dashed var(--buy);background:#fff8dc;border-radius:14px;padding:12px;margin:12px 0 4px;cursor:pointer}
+.bump input{width:20px;height:20px;margin-top:3px;accent-color:var(--buy);flex:0 0 20px}
+.bump img{width:52px;height:52px;border-radius:10px;object-fit:cover;flex:0 0 52px}
+.bump b{display:block;font-size:14px;font-weight:600;color:var(--buy);letter-spacing:.03em}.bump span{font-size:13.5px;line-height:1.4;display:block}
+/* post-confirmation offer */
+.up{max-width:620px;margin:0 auto;text-align:center;padding:10px 0 40px}
+.up .wait{background:#fff3cd;border:1px solid #f1d27a;border-radius:12px;padding:10px 14px;font-weight:500;font-size:14.5px}
+.prog{display:flex;justify-content:center;gap:6px;margin:18px 0 22px;font-size:12.5px;flex-wrap:wrap}
+.prog span{padding:6px 12px;border-radius:999px;background:#ecebe4;color:var(--muted)}.prog span.on{background:var(--buy);color:#fff}.prog span.ok{background:#dfe9d6;color:#2f4f2c}
+.upc{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);text-align:left;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.upc img{width:100%;height:100%;object-fit:cover;min-height:240px}.upc .bd{padding:20px;display:flex;flex-direction:column;gap:8px}
+.upc h3{font-size:30px}.upc select{font:inherit;padding:10px 12px;border:1px solid #cfcdc2;border-radius:12px;background:#fff;width:100%}
+.upyes{display:flex;width:100%;justify-content:center;margin-top:18px;padding:18px 20px;font-size:17px;font-weight:600;border-radius:999px;background:var(--buy);color:#fff;border:0}.upyes:hover{background:var(--buy-d)}
+.upno{display:inline-block;margin-top:12px;font-size:13.5px;color:var(--muted);text-decoration:underline}
+@media(max-width:600px){.upc{grid-template-columns:minmax(0,1fr)}.upc img{min-height:0;aspect-ratio:4/3}}
 </style></head><body>
 <div class="announce">Ručno rađena prirodna kozmetika · Dostava Bex kurirskom službom · Plaćanje pouzećem</div>
 <header class="site"><div class="wrap">
@@ -112,34 +171,57 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 <button class="cartbtn" id="openCart" aria-label="Korpa"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Korpa<span id="cnt"></span></button>
 </div></header>
 <main>
-<div class="wrap">
+<div class="pdpwrap"><div class="wrap">
 <nav class="crumbs" aria-label="Putanja"><a href="index.html">Početna</a><span>/</span><a href="index.html#ponuda">Sapuni i kupke</a><span>/</span>Prirodni sapuni</nav>
 <div class="pdp">
 <div class="gallery"><div class="stage"><img id="stageImg" src="img/sapun-ovseni.jpg" alt="Yotza sapun"></div><div class="thumbs" id="thumbs"></div></div>
 <div class="info"><span class="eyebrow">Hladni postupak · min. 4 nedelje zrenja</span>
 <h1>Prirodni sapun <span class="script" style="font-size:.7em" id="vTitle"></span></h1>
-<div class="price">550 RSD <small>po komadu</small></div>
+<div class="price">550 RSD <small>po komadu · uštedite uz paket</small></div>
 <p class="intro">Ručno sečen, sa utisnutim pečatom, od biljnih ulja i prirodnih dodataka. Miriše samo na eterična ulja. Izaberite svoj:</p>
 <div class="opt-head">Sapun: <span id="vName"></span></div>
 <div class="vars" id="vars"></div>
 <div class="notes" id="notes"></div>
-<div class="buy"><div class="qty"><button type="button" id="qm" aria-label="Manje">&minus;</button><span id="qv">1</span><button type="button" id="qp" aria-label="Više">+</button></div><button class="btn btn-p" id="atc" type="button">Dodaj u korpu</button></div>
+<div class="tiers" id="tiers" role="radiogroup" aria-label="Količina"></div>
+<div class="mix" id="mix" hidden></div>
+<div class="buy"><button class="btn btn-p" id="atc" type="button">Dodaj u korpu</button></div>
 <div class="perks"><div class="perk">Ručno rađeno</div><div class="perk">Bez parfema</div><div class="perk">Višak biljnih ulja</div></div>
 <div class="acc">
 <details open><summary>Zašto prirodni sapun</summary><div class="inner"><p>Sapuni pravljeni hladnom metodom od prirodnih sastojaka su nešto najbolje za svakodnevnu negu i čišćenje kože. U svoje sapune uvek stavljamo veću količinu ulja nego što je potrebno za samu hemijsku reakciju. Nikad svo ulje ne pređe u sapun i zato taj preostali, dragoceni višak ulja hrani i neguje vašu kožu.</p><p>Za razliku od industrijskih sapuna, iz našeg sapuna se ne izvlači glicerin koji nastaje prirodno tokom saponifikacije.</p></div></details>
-<details><summary>Sapun je kao dobro vino</summary><div class="inner"><p>Kod nas nikad niste kupili sapun koji je mlađi od 4 nedelje, a najčešće ih nudimo od pete nedelje pa nadalje. Kako vreme prolazi, sapun prirodno gubi višak vode. Zbog toga postaje čvršći, blaži za kožu, sporije se troši u kupatilu i daje onu bogatu, kremastu penu.</p><p>Miris eteričnih ulja vremenom postaje suptilniji. To nije greška, to je najbolji dokaz da u rukama držite 100% prirodan proizvod. Čim sapun počnete da koristite, gornji sloj se skida i oslobađaju se sveža eterična ulja zarobljena u unutrašnjosti.</p></div></details>
-<details><summary>Kako nastaje: 882 sata</summary><div class="inner"><ul><li><b>3 sata</b> – priprema lužine, merenje biljnih ulja i dodataka, topljenje i hlađenje</li><li><b>1 sat</b> – spajanje faza, blendiranje i izlivanje u kalup</li><li><b>36 sati</b> – mirovanje u kalupu i primarna saponifikacija</li><li><b>2 sata</b> – ručno sečenje, utiskivanje pečata, odlaganje na police</li><li><b>840 sati</b> – 35 dana zrenja i sušenja</li></ul></div></details>
 <details><summary>Dostava i plaćanje</summary><div class="inner"><p>Bex kurirska služba širom Srbije: 450 RSD uz uplatu na račun pre slanja (paket do 1 kg), uz plaćanje pouzećem 180 RSD više. U Novom Sadu besplatna lična dostava za porudžbine preko 1.000 RSD, uz dogovor oko dana i vremena.</p></div></details>
 </div>
 <p style="font-size:13px;color:var(--muted);margin-top:16px">Pitanja? <a href="https://www.instagram.com/yotzanatural/" target="_blank" rel="noopener" style="text-decoration:underline">Pišite nam</a></p>
 </div></div>
 
+</div></div>
+<div class="wrap">
 <section style="padding:20px 0 70px" id="terrazzo"><div class="sec-head"><span class="eyebrow">Još sapuna</span><h2>Unikatni komadi</h2></div>
 <div class="extra">
 <article class="xc"><img id="tzImg" src="img/sapun-terrazzo-kakao.jpg" alt="Terrazzo reciklažni sapun" loading="lazy"><div class="bd"><span class="eyebrow">Reciklažni</span><h3>Terrazzo, 3 komada</h3><p>Reciklažni sapuni sa šarenim komadićima, svaki sa svojim mirisom.</p><label style="font-size:14px;font-weight:500">Dezen<select id="tzSel"></select></label><p id="tzMir" style="font-size:13.5px;color:var(--muted)"></p><div class="row"><span class="pr">1.000 RSD</span><button class="addb" id="tzAdd">Dodaj u korpu</button></div></div></article>
 <article class="xc"><img src="img/morski.jpg" alt="Morski sapun sa školjkom" loading="lazy"><div class="bd"><span class="eyebrow">Art soap</span><h3>Morski sapun</h3><p>Bergamot, lavanda i neroli: miris letnjeg jutra na obali. Pesak od koloidnog ovsa i kafe, morska pena i prava mala školjka kao suvenir. Nema dva ista.</p><div class="row"><span class="pr">700 RSD</span><button class="addb" data-add="art">Dodaj u korpu</button></div></div></article>
 </div></section>
 
+<section style="padding:0 0 70px"><div class="sec-head"><span class="eyebrow">Razlika</span><h2>Yotza ili industrijski sapun?</h2><p>Na prvi pogled isti komad. Razlika je u tome kako nastaje i šta ostaje u njemu.</p></div>
+<div class="cmpwrap"><table class="cmp"><thead><tr><th></th><th class="us">Yotza prirodni sapun</th><th>Industrijski sapun</th></tr></thead><tbody>
+<tr><td>Kako nastaje</td><td class="us"><span class="y">✓</span>882 sata, hladnim postupkom, ručno sečen i pečatiran</td><td><span class="n">✕</span>„Hiljade sintetičkih pločica u sekundi“</td></tr>
+<tr><td>Prirodni glicerin</td><td class="us"><span class="y">✓</span>Ostaje u sapunu</td><td><span class="n">✕</span>Izvlači se</td></tr>
+<tr><td>Višak biljnih ulja</td><td class="us"><span class="y">✓</span>Uvek više ulja nego što reakcija potroši, taj višak neguje kožu</td><td>—</td></tr>
+<tr><td>Miris</td><td class="us"><span class="y">✓</span>Samo čista eterična ulja, bez parfema</td><td>—</td></tr>
+<tr><td>Zrenje</td><td class="us"><span class="y">✓</span>Najmanje 4 nedelje, najčešće od pete nedelje</td><td>—</td></tr>
+</tbody></table></div></section>
+
+<section style="padding:0 0 80px" class="faqg" id="pitanja"><div class="sec-head"><span class="eyebrow">Pitanja</span><h2>Pre nego što poručite</h2></div>
+<h3>Upotreba i trajanje</h3>
+<details><summary>Sapun je kao dobro vino: da li se kvari ako stoji?</summary><div class="inner"><p>Ne. Kod nas nikad niste kupili sapun koji je mlađi od 4 nedelje, a najčešće ih nudimo od pete nedelje pa nadalje. Kako vreme prolazi, sapun prirodno gubi višak vode. Zbog toga postaje čvršći, blaži za kožu, sporije se troši u kupatilu i daje onu bogatu, kremastu penu.</p></div></details>
+<details><summary>Zašto miris s vremenom postaje blaži?</summary><div class="inner"><p>To nije greška, to je najbolji dokaz da u rukama držite 100% prirodan proizvod. Čim sapun počnete da koristite, gornji sloj se skida i oslobađaju se sveža eterična ulja zarobljena u unutrašnjosti.</p></div></details>
+<h3>Sastojci i mirisi</h3>
+<details><summary>Zašto lubenica ne miriše na lubenicu?</summary><div class="inner"><p>Takav miris ne bi bio prirodan, nego parfemski, a parfem ne koristimo ni u jednom proizvodu. Lubenicu prvo otvara citrusna svežina grejpa i bergamota, zatim hladna menta, a lavanda, kedar, ruzmarin i benzoin je smiruju.</p></div></details>
+<details><summary>Kako nastaje jedan sapun?</summary><div class="inner"><ul><li><b>3 sata</b> – priprema lužine, merenje biljnih ulja i dodataka, topljenje i hlađenje</li><li><b>1 sat</b> – spajanje faza, blendiranje i izlivanje u kalup</li><li><b>36 sati</b> – mirovanje u kalupu i primarna saponifikacija</li><li><b>2 sata</b> – ručno sečenje, utiskivanje pečata, odlaganje na police</li><li><b>840 sati</b> – 35 dana zrenja i sušenja</li></ul></div></details>
+<h3>Paketi, dostava i plaćanje</h3>
+<details><summary>Mogu li da kombinujem sapune u paketu?</summary><div class="inner"><p>Da. Izaberite paket od 3 ili 5 sapuna i rasporedite ih kako želite, na primer dva Šumska i jedan Rujni.</p></div></details>
+<details><summary>Koliko košta dostava?</summary><div class="inner"><p>Uz uplatu na račun pre slanja: 450 RSD za paket do 1 kg, 540 RSD do 2 kg. Uz plaćanje pouzećem poštarina je veća za 180 RSD. Paket od 5 sapuna šaljemo besplatno. U Novom Sadu lična dostava je besplatna za porudžbine preko 1.000 RSD.</p></div></details>
+<details><summary>Mogu li da poručim poklon?</summary><div class="inner"><p>Da. U koraku porudžbine označite da je paket poklon i napišite za koga je, a mi u paket stavljamo posvetu.</p></div></details>
+</section>
 <section style="padding:0 0 80px"><div class="sec-head"><span class="eyebrow">Utisci</span><h2>Šta kažu kupci</h2></div>
 <div class="revs">
 <div class="rev"><p>„Sapuni ostavljaju kožu mekom i elastičnom i bez mazalica posle kupanja. Ovo je najtoplija preporuka, ako tragate za dobrim prirodnim rešenjima za vašu porodicu.“</p><b>Lidija <span>· Sapuni</span></b></div>
@@ -172,7 +254,12 @@ h1,h2,h3,.steps b,.ship b,.badge b,.rev p{font-variant-numeric:lining-nums}
 <label class="opt"><input type="radio" name="pl" value="cod" checked><div>Pouzećem<small>Plaćate gotovinom pri preuzimanju paketa.</small></div></label>
 <label class="opt"><input type="radio" name="pl" value="bank"><div>Uplata na račun pre slanja<small>Šaljemo vam podatke za uplatu, dostava je jeftinija za 180 RSD.</small></div></label></div>
 </div><div><div class="card" style="position:sticky;top:12px"><h3>Pregled porudžbine</h3><div id="coSum"></div><button class="btn btn-p block" type="submit" style="margin-top:14px">Potvrdi porudžbinu</button><p class="hint" style="text-align:center">Javljamo se telefonom radi potvrde pre slanja.</p></div></div></div></form></div>
-<div id="coDone" class="done" hidden><div class="okc">&#10003;</div><h2 style="font-size:40px">Hvala na porudžbini!</h2><p style="margin:12px auto;max-width:500px" id="doneTxt"></p><div class="card" style="max-width:500px;margin:18px auto;text-align:left" id="doneSum"></div><a class="btn btn-p" href="index.html">Nazad na prodavnicu</a></div>
+<div id="coUp" class="up" hidden><div class="wait">Samo trenutak! Vaša porudžbina je rezervisana. Ne zatvarajte ovu stranicu.</div>
+<div class="prog"><span class="ok">1. Porudžbina rezervisana ✓</span><span class="on">2. Ponuda uz porudžbinu</span><span>3. Potvrda</span></div>
+<h2 style="font-size:clamp(30px,5vw,42px)">Dodajte još nešto u isti paket</h2><p style="color:var(--muted);margin:8px 0 18px">Stiže zajedno sa vašom porudžbinom, u istom paketu.</p>
+<div class="upc" id="upCard"></div>
+<button type="button" class="upyes" id="upYes"></button><button type="button" class="upno" id="upNo">Ne, hvala, završi porudžbinu</button></div>
+<div id="coDone" class="done" hidden><div class="okc">&#10003;</div><h2 style="font-size:40px">Hvala na porudžbini!</h2><p style="margin:12px auto;max-width:500px" id="doneTxt"></p><div class="card" style="max-width:500px;margin:18px auto;text-align:left" id="doneSum"></div><a class="btn btn-ink" href="index.html">Nazad na prodavnicu</a></div>
 </div></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 const CATS=[['telo','Za telo'],['kosa','Za kosu'],['lice','Za lice'],['beba','Za bebu i mamu'],['sapuni','Sapuni i kupke'],['dom','Dom i mirisi']];
@@ -209,7 +296,9 @@ const P=[
 ['terrazzo','Terrazzo reciklažni sapuni, 3 kom.',1000,'sapuni','sapun-terrazzo-kakao'],
 ['kupka-lt','Kupka za lice i telo',1400,'sapuni'],
 ['cistac','Univerzalni čistač 500 ml',600,'dom'],
-['plocice','Voštane pločice',250,'dom','plocice']
+['plocice','Voštane pločice',250,'dom','plocice'],
+['paket3','Paket od 3 sapuna',1400,'x','sapun-ovseni'],
+['paket5','Paket od 5 sapuna',2050,'x','sapun-ovseni']
 ];
 const PRODUCTS={};P.forEach(x=>PRODUCTS[x[0]]={id:x[0],name:x[1],price:x[2],cat:x[3],img:x[4]?'img/'+x[4]+'.jpg':''});
 const SHIP={cod:630,bank:450};const NS_FREE=1000;
@@ -226,65 +315,97 @@ const thumb=c=>c.img?`<img src="${c.img}" alt="">`:`<div class="ph">Y</div>`;
 function render(){
   const n=cart.reduce((s,c)=>s+c.q,0);$('#cnt').textContent=n||'';
   const body=$('#dbody'),foot=$('#dfoot');
-  if(!cart.length){body.innerHTML='<div class="empty"><p style="font-family:Cormorant Garamond,serif;font-size:26px;color:var(--ink)">Korpa je prazna</p><p style="margin-top:8px">Dodajte omiljeni sapun ili negu.</p></div>';foot.innerHTML='<a class="btn btn-p block" href="sapuni.html">Pogledaj sapune</a>';return}
+  if(!cart.length){body.innerHTML='<div class="empty"><p style="font-family:Cormorant Garamond,serif;font-size:26px;color:var(--ink)">Korpa je prazna</p><p style="margin-top:8px">Dodajte omiljeni sapun ili negu.</p></div>';foot.innerHTML='<a class="btn btn-ink block" href="sapuni.html">Pogledaj sapune</a>';return}
   body.innerHTML=cart.map((c,i)=>`<div class="line">${thumb(c)}<div><div class="n">${esc(PRODUCTS[c.id].name)}</div>${c.v?`<div class="v">${esc(c.v)}</div>`:''}<div class="qty"><button data-d="-1" data-i="${i}" aria-label="Manje">&minus;</button><span>${c.q}</span><button data-d="1" data-i="${i}" aria-label="Više">+</button></div><button class="rm" data-rm="${i}">Ukloni</button></div><div style="font-weight:500;white-space:nowrap">${fmt(c.price*c.q)}</div></div>`).join('');
-  foot.innerHTML=`<div class="tot"><span>Proizvodi</span><span>${fmt(sub())}</span></div><div class="tot"><span>Dostava Bex (pouzećem)</span><span>${fmt(SHIP.cod)}</span></div><div class="tot big"><span>Ukupno</span><span>${fmt(sub()+SHIP.cod)}</span></div><p class="hint">Uz uplatu na račun dostava je ${fmt(SHIP.bank)}. U Novom Sadu besplatna dostava za porudžbine preko ${fmt(NS_FREE)}.</p><button class="btn btn-p block" id="toCo" style="margin-top:12px">Nastavi na porudžbinu</button>`;
+  const fs=cart.some(c=>c.fs),sc=fs?0:SHIP.cod;foot.innerHTML=bumpHTML()+`<div class="tot"><span>Proizvodi</span><span>${fmt(sub())}</span></div><div class="tot"><span>Dostava Bex${fs?'':' (pouzećem)'}</span><span>${fs?'besplatno':fmt(sc)}</span></div><div class="tot big"><span>Ukupno</span><span>${fmt(sub()+sc)}</span></div><p class="hint">Uz uplatu na račun dostava je ${fmt(SHIP.bank)}. U Novom Sadu besplatna dostava za porudžbine preko ${fmt(NS_FREE)}.</p><button class="btn btn-p block" id="toCo" style="margin-top:12px">Nastavi na porudžbinu</button>`;
 }
 function drawer(o){$('#drawer').classList.toggle('on',o);$('#ovl').classList.toggle('on',o);$('#drawer').setAttribute('aria-hidden',!o);document.body.style.overflow=o?'hidden':''}
 $('#openCart').onclick=()=>drawer(true);$('#closeCart').onclick=()=>drawer(false);$('#ovl').onclick=()=>drawer(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){drawer(false);if($('#co').classList.contains('on'))closeCo()}});
 $('#dbody').onclick=e=>{const t=e.target.closest('button');if(!t)return;if(t.dataset.d){const c=cart[+t.dataset.i];c.q+=+t.dataset.d;if(c.q<1)cart.splice(+t.dataset.i,1);save();render()}if(t.dataset.rm){cart.splice(+t.dataset.rm,1);save();render()}};
 $('#dfoot').onclick=e=>{if(e.target.id==='toCo')openCo()};
-function shipCost(){const f=$('#coForm');const d=f.dost.value,p=f.pl.value;if(d==='ns')return 0;return p==='bank'?SHIP.bank:SHIP.cod}
+function shipCost(){const f=$('#coForm');const d=f.dost.value,p=f.pl.value;if(d==='ns'||cart.some(c=>c.fs))return 0;return p==='bank'?SHIP.bank:SHIP.cod}
 function syncOpts(){const f=$('#coForm');const ok=sub()>NS_FREE;const ns=f.querySelector('input[value=ns]');ns.disabled=!ok;ns.closest('.opt').classList.toggle('dis',!ok);if(!ok&&ns.checked)f.querySelector('input[value=bex]').checked=true;$('#poklonTxt').hidden=!f.poklon.checked}
 function lines(){return cart.map(c=>`<div class="tot" style="font-size:15px"><span>${c.q} &times; ${esc(PRODUCTS[c.id].name)}${c.v?`<br><small style="color:var(--muted)">${esc(c.v)}</small>`:''}</span><span style="white-space:nowrap">${fmt(c.price*c.q)}</span></div>`).join('')}
 function shipLabel(){const f=$('#coForm');return f.dost.value==='ns'?'Lična dostava u Novom Sadu':'Dostava Bex'+(f.pl.value==='bank'?' (uplata na račun)':' (pouzećem)')}
-function sum(){syncOpts();const s=shipCost();$('#coSum').innerHTML=lines()+`<hr style="border:0;border-top:1px solid var(--line);margin:10px 0"><div class="tot"><span>Proizvodi</span><span>${fmt(sub())}</span></div><div class="tot"><span>${shipLabel()}</span><span>${s?fmt(s):'besplatno'}</span></div><div class="tot big"><span>Ukupno</span><span>${fmt(sub()+s)}</span></div>`}
+function sum(){syncOpts();const s=shipCost();$('#coSum').innerHTML=lines()+bumpHTML()+`<hr style="border:0;border-top:1px solid var(--line);margin:10px 0"><div class="tot"><span>Proizvodi</span><span>${fmt(sub())}</span></div><div class="tot"><span>${shipLabel()}</span><span>${s?fmt(s):'besplatno'}</span></div><div class="tot big"><span>Ukupno</span><span>${fmt(sub()+s)}</span></div>`}
 function openCo(){if(!cart.length)return;drawer(false);$('#coMain').hidden=false;$('#coDone').hidden=true;$('#co').classList.add('on');document.body.style.overflow='hidden';$('#co').scrollTop=0;sum()}
 function closeCo(){$('#co').classList.remove('on');document.body.style.overflow=''}
 $('#backCart').onclick=()=>{closeCo();drawer(true)};
 $('#coForm').addEventListener('change',sum);
-$('#coForm').onsubmit=e=>{e.preventDefault();const f=e.target;let bad=null;
-  ['ime','tel','adresa','grad'].forEach(n=>{const i=f[n];const v=i.value.trim();const okv=n==='tel'?/^\+?[0-9][0-9 \/\(\)\-]{5,}$/.test(v):!!v;if(!okv){i.style.borderColor='#c0392b';bad=bad||i}else i.style.borderColor=''});
-  if(bad){bad.focus();toast(bad.name==='tel'&&bad.value.trim()?'Proverite broj telefona':'Popunite obavezna polja');return}
-  const s=shipCost(),tot=sub()+s,no='YZ-'+Math.floor(10000+Math.random()*89999);
+
+const TZ=[['kakao','Kakao','bergamot, pačuli, kedar'],['zeleni','Zeleni','grejp, eukaliptus, ruzmarin, limeta'],['natural','Natural','narandža, neroli, cimet, geranijum'],['karamela','Karamela','eukaliptus, bergamot, spearmint, benzoin'],['ugalj','Ugalj','ruzmarin, lavanda']];
+const BUMP_V='Uz porudžbinu';
+const hasBump=()=>cart.some(c=>c.id==='plocice'&&c.v===BUMP_V);
+function bumpHTML(){if(cart.some(c=>c.id==='plocice'&&c.v!==BUMP_V))return '';return `<label class="bump"><input type="checkbox" data-bump ${hasBump()?'checked':''}><img src="img/plocice.jpg" alt=""><div><b>DODAJTE UZ PORUDŽBINU: voštana pločica, 250 RSD</b><span>100% pčelinji vosak, cvetovi i eterična ulja lavande i ruzmarina. Za ormar i fioke, prirodno tera moljce.</span></div></label>`}
+document.addEventListener('change',e=>{if(!e.target.matches('[data-bump]'))return;if(e.target.checked){if(!hasBump())cart.push({id:'plocice',v:BUMP_V,q:1,img:'img/plocice.jpg',price:250})}else cart=cart.filter(c=>!(c.id==='plocice'&&c.v===BUMP_V));save();render();if($('#co').classList.contains('on'))sum()});
+let pending=null;
+function offer(){if(!cart.some(c=>c.id==='terrazzo'))return {id:'terrazzo',price:1000,title:'Terrazzo reciklažni sapuni, 3 komada',text:'Šareni reciklažni sapuni, svaki sa svojim mirisom. Izaberite dezen:',tz:true};return {id:'art',price:700,title:'Morski sapun (art soap)',text:'Bergamot, lavanda i neroli, pesak od koloidnog ovsa i kafe i prava mala školjka kao suvenir. Nema dva ista.',img:'img/morski.jpg'}}
+function showUp(){const o=offer();pending.o=o;$('#toast').classList.remove('on');
+ $('#upCard').innerHTML=`<img id="upImg" src="${o.tz?'img/sapun-terrazzo-'+TZ[0][0]+'.jpg':o.img}" alt=""><div class="bd"><span class="eyebrow">Ponuda uz porudžbinu</span><h3>${o.title}</h3><p style="font-size:14.5px;color:#4a4a43">${o.text}</p>${o.tz?`<select id="upTz">${TZ.map((t,i)=>`<option value="${i}">${t[1]} · ${t[2]}</option>`).join('')}</select>`:''}<p style="font-weight:600;font-size:20px;margin-top:auto">${fmt(o.price)}</p></div>`;
+ if(o.tz)$('#upTz').onchange=()=>{$('#upImg').src='img/sapun-terrazzo-'+TZ[+$('#upTz').value][0]+'.jpg'};
+ $('#upYes').textContent='Da, dodaj u paket za '+fmt(o.price);
+ $('#coMain').hidden=true;$('#coUp').hidden=false;$('#co').scrollTop=0}
+function finish(){const f=$('#coForm');const s=shipCost(),tot=sub()+s,no='YZ-'+Math.floor(10000+Math.random()*89999);
   const how=f.dost.value==='ns'?'Javljamo se da dogovorimo dan i vreme lične dostave na vašu adresu u Novom Sadu.':(f.pl.value==='bank'?'Javljamo se sa podacima za uplatu, a paket šaljemo Bex kurirskom službom po prijemu uplate.':'Paket šaljemo Bex kurirskom službom, a plaćate pouzećem pri preuzimanju.');
   $('#doneTxt').textContent='Porudžbina '+no+' je primljena. '+how;
   $('#doneSum').innerHTML='<p id="dn" style="font-weight:500"></p><hr style="border:0;border-top:1px solid var(--line);margin:10px 0">'+lines()+`<div class="tot"><span>${shipLabel()}</span><span>${s?fmt(s):'besplatno'}</span></div><div class="tot big"><span>Ukupno</span><span>${fmt(tot)}</span></div>`;
   $('#dn').textContent=f.ime.value+', '+f.adresa.value+', '+f.pb.value+' '+f.grad.value+' · '+f.tel.value;
-  cart=[];save();render();$('#coMain').hidden=true;$('#coDone').hidden=false;$('#co').scrollTop=0};
+  cart=[];save();render();$('#coUp').hidden=true;$('#coMain').hidden=true;$('#coDone').hidden=false;$('#co').scrollTop=0}
+$('#upYes').onclick=()=>{const o=pending.o;if(o.tz){const t=TZ[+$('#upTz').value];cart.push({id:'terrazzo',v:'Dezen: '+t[1]+' · uz porudžbinu',q:1,img:'img/sapun-terrazzo-'+t[0]+'.jpg',price:1000})}else cart.push({id:'art',v:'Uz porudžbinu',q:1,img:'img/morski.jpg',price:700});save();finish()};
+$('#upNo').onclick=finish;
+$('#coForm').onsubmit=e=>{e.preventDefault();const f=e.target;let bad=null;
+  ['ime','tel','adresa','grad'].forEach(n=>{const i=f[n];const v=i.value.trim();const okv=n==='tel'?/^\+?[0-9][0-9 \/\(\)\-]{5,}$/.test(v):!!v;if(!okv){i.style.borderColor='#c0392b';bad=bad||i}else i.style.borderColor=''});
+  if(bad){bad.focus();toast(bad.name==='tel'&&bad.value.trim()?'Proverite broj telefona':'Popunite obavezna polja');return}
+  pending={};showUp()};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b){add(b.dataset.add,b.dataset.v||'',1);}});
 render();
 const SOAPS=[
-{k:'ovseni',n:'Ovseni',ing:'med, mleko, ovas',mir:'lavanda, ylang-ylang, spearmint'},
-{k:'mlecni',n:'Mlečni',ing:'kozje mleko',mir:'organska lavanda'},
-{k:'sumski',n:'Šumski',ing:'spirulina, zeleni čaj, aloe vera',mir:'kedar, ruzmarin, limeta'},
-{k:'zlatni',n:'Zlatni',ing:'kamilica, neven, kurkuma i bakučiol',mir:'lavanda, rimska kamilica, čajno drvo'},
-{k:'detox',n:'Detox',ing:'aktivni ugalj, zeolit i kaolin',mir:'menta, eukaliptus, pačuli'},
-{k:'kafeni',n:'Kafeni',ing:'kafa, mak',mir:'vanila, kedar, cimet'},
-{k:'rujni',n:'Rujni',ing:'crvena francuska glina',mir:'neroli, grejp, geranijum, kedar'},
-{k:'lubenica',n:'Lubenica',ing:'crvena glina, mak',mir:'grejp, bergamot, menta, lavanda, kedar, benzoin resin, ruzmarin'}
+{k:'ovseni',n:'Ovseni',ing:'med, mleko, ovas',mir:'lavanda, ylang-ylang, spearmint',bg:'#ebcb97',deep:'#6b4520',tint:'#f6ead3'},
+{k:'mlecni',n:'Mlečni',ing:'kozje mleko',mir:'organska lavanda',bg:'#e3d9bb',deep:'#5e5636',tint:'#f4f0e2'},
+{k:'sumski',n:'Šumski',ing:'spirulina, zeleni čaj, aloe vera',mir:'kedar, ruzmarin, limeta',bg:'#b9cfa8',deep:'#2f4f2c',tint:'#e5eedd'},
+{k:'zlatni',n:'Zlatni',ing:'kamilica, neven, kurkuma i bakučiol',mir:'lavanda, rimska kamilica, čajno drvo',bg:'#f0b65e',deep:'#6e3b0c',tint:'#fbe8c8'},
+{k:'detox',n:'Detox',ing:'aktivni ugalj, zeolit i kaolin',mir:'menta, eukaliptus, pačuli',bg:'#2b2b2a',deep:'#f2f0ea',tint:'#e4e3df',dark:1},
+{k:'kafeni',n:'Kafeni',ing:'kafa, mak',mir:'vanila, kedar, cimet',bg:'#cfb28d',deep:'#43291a',tint:'#f0e6d8'},
+{k:'rujni',n:'Rujni',ing:'crvena francuska glina',mir:'neroli, grejp, geranijum, kedar',bg:'#e5a07e',deep:'#6e2a13',tint:'#f8e0d3'},
+{k:'lubenica',n:'Lubenica',ing:'crvena glina, mak',mir:'grejp, bergamot, menta, lavanda, kedar, benzoin resin, ruzmarin',bg:'#f3a9a9',deep:'#7f2131',tint:'#fbe3e1'}
 ];
-let vi=Math.max(0,SOAPS.findIndex(s=>s.k===location.hash.slice(1))),q=1;
-function imgs(){const s=SOAPS[vi];const l=[['sapun-'+s.k,'Sapun '+s.n]];if(s.k==='lubenica')l.push(['lubenica-flat','Lubenica sapuni'],['lubenica-detalj','Lubenica izbliza']);l.push(['hero-sapun','Pena pod mlazom vode'],['882-sata','Sapuni na poslužavniku']);return l}
-function setStage(src,alt){const i=$('#stageImg');i.src='img/'+src+'.jpg';i.alt=alt}
+let vi=Math.max(0,SOAPS.findIndex(s=>s.k===location.hash.slice(1)));
+// Bundle prices are a proposal for the brand (ESTIMATE in brief.md): 3 for 1.400, 5 for 2.050 + free delivery.
+const TIERS=[{n:1,price:550,label:'1 sapun',sub:'Probajte jedan'},{n:3,price:1400,label:'3 sapuna',sub:'Kombinujte mirise',rib:'Najpopularnije'},{n:5,price:2050,label:'5 sapuna',sub:'Besplatna dostava',rib:'Najbolja vrednost',alt:1,fs:1}];
+let ti=1,mix={};
+function resetMix(){mix={};mix[SOAPS[vi].k]=TIERS[ti].n}
+const mixCount=()=>Object.values(mix).reduce((a,b)=>a+b,0);
+function imgs(){const s=SOAPS[vi];const l=[['cut-'+s.k,'Sapun '+s.n,'webp']];l.push(['sapun-'+s.k,'Sapun '+s.n+' na fotografiji']);if(s.k==='lubenica')l.push(['lubenica-flat','Lubenica sapuni'],['lubenica-detalj','Lubenica izbliza']);l.push(['hero-sapun','Pena pod mlazom vode'],['882-sata','Sapuni na poslužavniku']);return l}
+function setStage(x){const i=$('#stageImg');i.src='img/'+x[0]+'.'+(x[2]||'jpg');i.alt=x[1];i.classList.toggle('cut',x[2]==='webp')}
+function theme(){const s=SOAPS[vi];const b=document.body.style;b.setProperty('--bg',s.bg);b.setProperty('--deep',s.dark?'#2b2b2a':s.deep);b.setProperty('--tint',s.tint)}
+function drawTiers(){$('#tiers').innerHTML=TIERS.map((t,i)=>{const full=550*t.n,save=full-t.price;return `<button type="button" class="tier" role="radio" aria-pressed="${i===ti}" aria-checked="${i===ti}" data-i="${i}">${t.rib?`<span class="rib${t.alt?' alt':''}">${t.rib}</span>`:''}<span class="dot"></span><span><b>${t.label}</b><small>${t.sub}</small>${save?`<br><span class="save">UŠTEDA ${fmt(save)}</span>`:''}</span><span class="pz">${save?`<s>${fmt(full)}</s>`:''}<strong>${fmt(t.price)}</strong></span></button>`}).join('');
+ $('#tiers').querySelectorAll('.tier').forEach(b=>b.onclick=()=>{ti=+b.dataset.i;resetMix();draw()})}
+function drawMix(){const t=TIERS[ti];const m=$('#mix');if(t.n===1){m.hidden=true;return}m.hidden=false;const c=mixCount();
+ m.innerHTML=`<div class="hd"><b>Vaš paket: ${t.n} sapuna</b><span class="${c===t.n?'ok':'no'}">${c===t.n?'Paket je pun ✓':'Izabrano '+c+' od '+t.n}</span></div>`+SOAPS.map(x=>`<div class="mrow"><i style="--c:${x.bg}"><img src="img/cut-${x.k}-s.webp" alt=""></i><span>${x.n}</span><span class="q"><button type="button" data-m="${x.k}" data-d="-1" aria-label="Manje ${x.n}">&minus;</button><span>${mix[x.k]||0}</span><button type="button" data-m="${x.k}" data-d="1" aria-label="Više ${x.n}">+</button></span></div>`).join('')}
+$('#mix').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;const k=b.dataset.m,d=+b.dataset.d,t=TIERS[ti];if(d>0&&mixCount()>=t.n){toast('Paket je pun. Smanjite neki drugi sapun.');return}mix[k]=Math.max(0,(mix[k]||0)+d);if(!mix[k])delete mix[k];draw()};
 function draw(){
- const s=SOAPS[vi];
- $('#vars').innerHTML=SOAPS.map((x,i)=>`<button type="button" class="var" aria-pressed="${i===vi}" data-i="${i}"><img src="img/sapun-${x.k}.jpg" alt="">${x.n}</button>`).join('');
- $('#vars').querySelectorAll('button').forEach(b=>b.onclick=()=>{vi=+b.dataset.i;history.replaceState(null,'','#'+SOAPS[vi].k);draw()});
+ const s=SOAPS[vi],t=TIERS[ti];theme();
+ $('#vars').innerHTML=SOAPS.map((x,i)=>`<button type="button" class="var${x.dark?' dark':''}" style="--c:${x.bg}" aria-pressed="${i===vi}" data-i="${i}"><img src="img/cut-${x.k}-s.webp" alt="">${x.n}</button>`).join('');
+ $('#vars').querySelectorAll('button').forEach(b=>b.onclick=()=>{vi=+b.dataset.i;history.replaceState(null,'','#'+SOAPS[vi].k);if(TIERS[ti].n===1||mixCount()===0)resetMix();draw()});
  $('#vName').textContent=s.n;$('#vTitle').textContent=s.n;
  $('#notes').innerHTML=`<div><b>Sastav:</b> ${s.ing}</div><div><b>Miris:</b> ${s.mir}</div>`;
- const L=imgs();setStage(L[0][0],'Yotza sapun '+s.n);
- $('#thumbs').innerHTML=L.map((x,i)=>`<button type="button" aria-pressed="${i===0}" aria-label="${x[1]}"><img src="img/${x[0]}.jpg" alt=""></button>`).join('');
- $('#thumbs').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{setStage(L[i][0],L[i][1]);$('#thumbs').querySelectorAll('button').forEach(o=>o.setAttribute('aria-pressed',o===b))});
- $('#qv').textContent=q;$('#stkN').textContent='Sapun '+s.n;$('#stkP').textContent=fmt(550*q);
+ const L=imgs();setStage(L[0]);
+ $('#thumbs').innerHTML=L.map((x,i)=>`<button type="button" aria-pressed="${i===0}" aria-label="${x[1]}" style="${x[2]?'background:'+s.bg:''}"><img src="img/${x[0]}${x[2]?'-s':''}.${x[2]||'jpg'}" alt="" style="${x[2]?'object-fit:contain':''}"></button>`).join('');
+ $('#thumbs').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{setStage(L[i]);$('#thumbs').querySelectorAll('button').forEach(o=>o.setAttribute('aria-pressed',o===b))});
+ drawTiers();drawMix();
+ const full=t.n===1||mixCount()===t.n;$('#atc').disabled=!full;$('#stkB').disabled=!full;
+ const lbl=full?'Dodaj u korpu · '+fmt(t.price):'Izaberite još '+(t.n-mixCount());$('#atc').textContent=lbl;$('#stkB').textContent=full?'Dodaj u korpu':'Dopunite paket';
+ $('#stkN').textContent=t.n===1?'Sapun '+s.n:t.label;$('#stkP').textContent=fmt(t.price)+(t.fs?' · besplatna dostava':'');
 }
-$('#qm').onclick=()=>{q=Math.max(1,q-1);draw()};$('#qp').onclick=()=>{q=Math.min(20,q+1);draw()};
-function addSoap(){const s=SOAPS[vi];add('sapun',s.n+' · '+s.ing,q,'img/sapun-'+s.k+'.jpg');drawer(true)}
+function addSoap(){const t=TIERS[ti],s=SOAPS[vi];
+ if(t.n===1)add('sapun',s.n+' · '+s.ing,1,'img/sapun-'+s.k+'.jpg');
+ else{const v=Object.entries(mix).map(([k,q])=>q+'× '+SOAPS.find(x=>x.k===k).n).join(', ');cart.push({id:'paket'+t.n,v,q:1,img:'img/sapun-'+Object.keys(mix)[0]+'.jpg',price:t.price,fs:t.fs?1:0});save();render();toast('Dodato u korpu: '+t.label)}
+ drawer(true)}
 $('#atc').onclick=addSoap;$('#stkB').onclick=addSoap;
 new IntersectionObserver(([e])=>$('#stk').classList.toggle('show',!e.isIntersecting&&e.boundingClientRect.top<0)).observe($('#atc'));
+resetMix();
 draw();
-const TZ=[['kakao','Kakao','bergamot, pačuli, kedar'],['zeleni','Zeleni','grejp, eukaliptus, ruzmarin, limeta'],['natural','Natural','narandža, neroli, cimet, geranijum'],['karamela','Karamela','eukaliptus, bergamot, spearmint, benzoin'],['ugalj','Ugalj','ruzmarin, lavanda']];
 $('#tzSel').innerHTML=TZ.map((t,i)=>`<option value="${i}">${t[1]}</option>`).join('');
 function tz(){const t=TZ[+$('#tzSel').value];$('#tzImg').src='img/sapun-terrazzo-'+t[0]+'.jpg';$('#tzImg').alt='Terrazzo reciklažni sapun '+t[1];$('#tzMir').textContent='Miris: '+t[2]}
 $('#tzSel').onchange=tz;tz();
